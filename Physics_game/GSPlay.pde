@@ -310,8 +310,25 @@ class GSPlay
     def.type = isFixed ? BodyType.STATIC : BodyType.DYNAMIC;
     //def.type = BodyType.DYNAMIC;
 
-    // position of center, is half distance of length of line 
-    def.position = new Vec2(dx, pos.y - dy);
+    // position of center, is half distance of length of line
+   
+    if(pos.y > mousePos.y)
+    { 
+      def.position = new Vec2(pos.x - dx/2, pos.y - dy/2);
+    }    
+    else if(pos.y < mousePos.y)
+    { 
+      def.position = new Vec2(pos.x - dx/2, pos.y + dy/2);
+    }
+    
+    if(pos.x > mousePos.x)
+    { 
+      def.position = new Vec2(pos.x - dx/2, pos.y - dy/2);
+    }    
+    else if(pos.x < mousePos.x)
+    { 
+      def.position = new Vec2(pos.x + dx/2, pos.y + dy/2);
+    }
 
     // def.setAngl();---------------------------------------------------------------------- add
 
@@ -330,7 +347,7 @@ class GSPlay
 
     if(dx >= dy)
     {
-        shape.setAsBox(dx, 8);  // sets the box to be the length of the line draw on its Y value
+        shape.setAsBox(dx/2, 8);  // sets the box to be the length of the line draw on its Y value
     }
     else if(dx < dy)
     {
