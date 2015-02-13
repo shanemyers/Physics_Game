@@ -4,7 +4,7 @@ import org.jbox2d.collision.shapes.*;
 import org.jbox2d.dynamics.*;
 import org.jbox2d.collision.shapes.PolygonShape;
 
-
+// world object for physics changes
 World world;
 float timeStep = 1.0/30;
 
