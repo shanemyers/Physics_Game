@@ -136,7 +136,7 @@ class GSPlay
 
   public GSPlay()
   {
-    //makeCircle(new Vec2(width / 2, height / 2), true);
+    makeCircle(new Vec2(width / 2, height / 2), true);
     makeBox(new Vec2(width / 2, 7 * height / 8), 800, 20, true);
   }  
 
@@ -203,9 +203,19 @@ class GSPlay
   }
   void drawBody(Body body)
   {
-    PolygonShape ps = (PolygonShape)body.getFixtureList().getShape();
-    Vec2[] verts = ps.getVertices();
-    Vec2 pos = body.getPosition();
+
+    println(body.getFixtureList().getShape().getType() == ShapeType.CIRCLE);
+/*
+    if (body.getFixtureList().getShape().shapeType())
+    {
+      CircleShape ps = (CircleShape)body.getFixtureList().getShape();
+    }
+    else
+    {
+      PolygonShape ps = (PolygonShape)body.getFixtureList().getShape();
+      Vec2[] verts = ps.getVertices();
+      
+      Vec2 pos = body.getPosition();
 
 
     float minX = 0;
@@ -221,9 +231,8 @@ class GSPlay
 
     translate(pos.x, pos.y);
     rotate(body.getAngle());
-
-
-    beginShape();
+      
+      beginShape();
 
     for (int i = 0; i < ps.getVertexCount (); i++)
     {
@@ -253,6 +262,15 @@ class GSPlay
     }
 
     endShape();
+      
+    }
+*/
+
+
+    
+
+
+    
 
     /*
   avgX = (maxX + minX)/2;
@@ -289,7 +307,7 @@ class GSPlay
      fill(255);
      */
 
-    popMatrix();
+    //popMatrix();
   }
 
   Body makeLimb(Vec2 pos, boolean isFixed)
@@ -341,8 +359,8 @@ class GSPlay
     //shape.setAsBox(w, h);
 
 
-    println("dx: " + dx + "  ::  dy: " + dy); 
-    println("x: " + mouseX + "  ::  x2: " + mousePos.x); 
+    //println("dx: " + dx + "  ::  dy: " + dy); 
+    //println("x: " + mouseX + "  ::  x2: " + mousePos.x); 
 
     // height should be distance of line drawn
 
@@ -423,7 +441,7 @@ class GSPlay
     fixture.friction = .5;
     fixture.restitution = 0; // how relaxed the collison detection is
 
-
+    body.createFixture(fixture);
     return body;
   }
 
