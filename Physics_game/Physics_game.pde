@@ -8,6 +8,7 @@ import org.jbox2d.collision.shapes.PolygonShape;
 World world;
 float timeStep = 1.0/30;
 
+
 GSPlay gsPlay;
 GSTitle gsTitle;
 GSOver gsOver;
@@ -32,9 +33,12 @@ void Update()
 
 void draw()
 {
+  
+  Update();
+  
 
   background(123);
-
+  
 
   if (gsPlay != null)
   {
