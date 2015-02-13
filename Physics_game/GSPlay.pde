@@ -334,6 +334,7 @@ class GSPlay
     }
     else if(dx < dy)
     {
+      // issues
         shape.setAsBox(8, dy/2);  // sets the box to be the length of the line draw on its Y value
     }
 
